@@ -13,6 +13,9 @@
 </head>
 <body>
 
+<!-- scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
 <!-- grain overlay -->
 <div class="grain" aria-hidden="true"></div>
 
@@ -42,19 +45,21 @@
 
 <!-- HERO — poster / movie-credits style -->
 <section class="hero" id="top">
-  <p class="hero__eyebrow">NOW SHOWING <span class="dot">●</span> PORTFOLIO EDITION</p>
+  <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
+
+  <p class="hero__eyebrow reveal">NOW SHOWING <span class="dot">●</span> PORTFOLIO EDITION</p>
 
   <h1 class="hero__title">
-    <span>CASSANDRA</span>
-    <span class="hero__title--outline">MIRANDA</span>
+    <span class="reveal reveal--1">CASSANDRA</span>
+    <span class="hero__title--outline reveal reveal--2">MIRANDA</span>
   </h1>
 
-  <div class="hero__credits">
+  <div class="hero__credits reveal reveal--3">
     <p><span>GRAPHIC DESIGN</span> · <span>AI CONTENT CREATION</span> · <span>VIDEO EDITING</span></p>
   </div>
 
-  <div class="hero__bottom">
-    <a href="#work" class="btn btn--primary">See the work ↓</a>
+  <div class="hero__bottom reveal reveal--4">
+    <a href="#work" class="btn btn--primary" id="magneticBtn">See the work ↓</a>
     <p class="hero__stamp">EST. <span>2003</span></p>
   </div>
 
@@ -68,12 +73,12 @@
 
 <!-- WORK / GALLERY -->
 <section class="work" id="work">
-  <div class="section-head">
+  <div class="section-head reveal">
     <p class="section-label">01 — Selected Work</p>
     <h2>The Wall</h2>
   </div>
 
-  <div class="filters" id="filters">
+  <div class="filters reveal" id="filters">
     <button class="filter-btn is-active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="poster">Posters</button>
     <button class="filter-btn" data-filter="thumbnail">Thumbnails</button>
@@ -81,7 +86,7 @@
 
   <div class="gallery" id="gallery">
     <!-- Replace each .card's inner <img> src with your own file, or keep the placeholder look. -->
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/c1.png" alt="Solo concert poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c1.png</div>
@@ -89,7 +94,7 @@
       <figcaption><span>Poster</span> Solo Concert</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/c2.png" alt="Who's That Girl? poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c2.png</div>
@@ -97,7 +102,7 @@
       <figcaption><span>Poster</span> Who's That Girl?</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/c3.png" alt="Karma poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c3.png</div>
@@ -105,7 +110,7 @@
       <figcaption><span>Poster</span> Karma</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/c4.png" alt="Lee Know poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c4.png</div>
@@ -113,7 +118,7 @@
       <figcaption><span>Poster</span> Lee Know</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/c5.png" alt="Taste the Zest poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c5.png</div>
@@ -121,7 +126,7 @@
       <figcaption><span>Poster</span> Taste the Zest</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/c6.png" alt="Life poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c6.png</div>
@@ -129,7 +134,7 @@
       <figcaption><span>Poster</span> Life</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t1.png" alt="Replaced by AI thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t1.png</div>
@@ -137,15 +142,15 @@
       <figcaption><span>Thumbnail</span> Replaced by AI</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t5.png" alt="Youtube thumbnail sample" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t5.png</div>
       </div>
       <figcaption><span>Thumbnail</span> AI Youtube Thumbnail</figcaption>
     </figure>
-    
-    <figure class="card" data-cat="thumbnail">
+
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t8.png" alt="How to earn 1000$ per month" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t8.png</div>
@@ -153,7 +158,7 @@
       <figcaption><span>Thumbnail</span> How to Earn 1000$ per Month</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t2.png" alt="A Day in a Life thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t2.png</div>
@@ -161,7 +166,7 @@
       <figcaption><span>Thumbnail</span> A Day in a Life</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t3.png" alt="A Day in Bali thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t3.png</div>
@@ -169,15 +174,15 @@
       <figcaption><span>Thumbnail</span> A Day in Bali</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t4.png" alt="The Voice" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t4.png</div>
       </div>
       <figcaption><span>Thumbnail</span> The Voice Journey</figcaption>
     </figure>
-    
-    <figure class="card" data-cat="thumbnail">
+
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t7.png" alt="Japan Vlog" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t7.png</div>
@@ -185,38 +190,38 @@
       <figcaption><span>Thumbnail</span> Japan Vlog</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t6.png" alt="Tokyo Travel" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t6.png</div>
       </div>
       <figcaption><span>Thumbnail</span> Tokyo Travel</figcaption>
     </figure>
-    
+
   </div>
 
-  <p class="gallery-note">Note: some subjects/elements in select thumbnails were generated with ChatGPT and used as sample content for this portfolio, then manually edited and composed in Canva.</p>
+  <p class="gallery-note reveal">Note: some subjects/elements in select thumbnails were generated with ChatGPT and used as sample content for this portfolio, then manually edited and composed in Canva.</p>
 </section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
-  <div class="section-head section-head--light">
+  <div class="section-head section-head--light reveal">
     <p class="section-label">02 — What I Do</p>
     <h2>Services</h2>
   </div>
 
   <div class="service-list">
-    <div class="service-row">
+    <div class="service-row reveal">
       <span class="service-num">01</span>
       <h3>Graphic Design</h3>
       <p>Posters, social templates, and brand visuals built to actually get looked at.</p>
     </div>
-    <div class="service-row">
+    <div class="service-row reveal">
       <span class="service-num">02</span>
       <h3>AI Content Creation</h3>
       <p>Concepting and producing content with AI tools — from idea to finished asset.</p>
     </div>
-    <div class="service-row">
+    <div class="service-row reveal">
       <span class="service-num">03</span>
       <h3>Basic Video Editing</h3>
       <p>Short-form edits — reels, TikToks, and quick-turnaround clips (as of now).</p>
@@ -226,11 +231,11 @@
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="section-head">
+  <div class="section-head reveal">
     <p class="section-label">03 — About</p>
     <h2>Hi, I'm Cassandra.</h2>
   </div>
-  <p class="about__body">
+  <p class="about__body reveal">
     I design things that catch the eye first and hold it after — posters, thumbnails,
     and content that mixes hands-on design with AI-assisted workflows. Based on what
     the project needs, I move between Canva, AI tools for ideation, and whatever gets
@@ -240,23 +245,23 @@
 
 <!-- TOOLS -->
 <section class="tools" id="tools">
-  <div class="section-head section-head--light">
+  <div class="section-head section-head--light reveal">
     <p class="section-label">04 — Toolkit</p>
     <h2>Made With</h2>
   </div>
 
   <div class="tool-grid">
-    <div class="tool-card">
+    <div class="tool-card reveal">
       <p class="tool-card__role">Design & Editing</p>
       <p class="tool-card__name">Canva</p>
       <p class="tool-card__name">CapCut</p>
     </div>
-    <div class="tool-card">
+    <div class="tool-card reveal">
       <p class="tool-card__role">Ideas & Prompts</p>
       <p class="tool-card__name">ChatGPT</p>
       <p class="tool-card__name">Claude</p>
     </div>
-    <div class="tool-card">
+    <div class="tool-card reveal">
       <p class="tool-card__role">Assets & References</p>
       <p class="tool-card__name">Pexels</p>
       <p class="tool-card__name">Unsplash</p>
@@ -267,21 +272,21 @@
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="section-head">
+  <div class="section-head reveal">
     <p class="section-label">05 — Get In Touch</p>
     <h2>Let's make<br>something.</h2>
   </div>
 
   <div class="contact__grid">
-    <a class="contact__link" href="mailto:miranda.cassandra.m@gmail.com">
+    <a class="contact__link reveal" href="mailto:miranda.cassandra.m@gmail.com">
       <span class="contact__label">Email</span>
       <span class="contact__value">miranda.cassandra.m@gmail.com</span>
     </a>
-    <a class="contact__link" href="https://www.instagram.com/mcssndr_/?hl=en" target="_blank" rel="noopener noreferrer">
+    <a class="contact__link reveal" href="https://www.instagram.com/mcssndr_/?hl=en" target="_blank" rel="noopener noreferrer">
       <span class="contact__label">Instagram</span>
       <span class="contact__value">@mcssndr_</span>
     </a>
-    <a class="contact__link" href="https://www.linkedin.com/in/cassandra-miranda-61a6693a5" target="_blank" rel="noopener noreferrer">
+    <a class="contact__link reveal" href="https://www.linkedin.com/in/cassandra-miranda-61a6693a5" target="_blank" rel="noopener noreferrer">
       <span class="contact__label">LinkedIn</span>
       <span class="contact__value">Cassandra Miranda</span>
     </a>
@@ -291,6 +296,8 @@
 <footer class="footer">
   <p>© <span id="year"></span> Cassandra Miranda. All work shown is original unless noted.</p>
 </footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
 
 <script src="script.js"></script>
 </body>
