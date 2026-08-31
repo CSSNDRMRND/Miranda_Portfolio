@@ -17,9 +17,10 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ----- Gallery filtering (Posters / Thumbnails / All) -----
+// ----- Gallery filtering (Posters / Thumbnails / AI Generated / All) -----
 const filterButtons = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.gallery .card');
+const galleryEmpty = document.getElementById('galleryEmpty');
 
 filterButtons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -27,10 +28,17 @@ filterButtons.forEach(btn => {
     btn.classList.add('is-active');
 
     const filter = btn.dataset.filter;
+    let visibleCount = 0;
     cards.forEach(card => {
-      const match = filter === 'all' || card.dataset.cat === filter;
+      const cats = card.dataset.cat.split(' ');
+      const match = filter === 'all' || cats.includes(filter);
       card.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
     });
+
+    if (galleryEmpty) {
+      galleryEmpty.hidden = visibleCount > 0;
+    }
   });
 });
 
