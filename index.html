@@ -85,6 +85,7 @@
     <button class="filter-btn is-active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="poster">Posters</button>
     <button class="filter-btn" data-filter="thumbnail">Thumbnails</button>
+    <button class="filter-btn" data-filter="ai">AI Generated</button>
   </div>
 
   <div class="gallery" id="gallery">
@@ -200,7 +201,7 @@
       </div>
       <figcaption><span>Thumbnail</span> Tokyo Travel</figcaption>
     </figure>
-    
+
     <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/t9.png" alt="Podcast" onerror="this.closest('.card').classList.add('is-placeholder')">
@@ -210,6 +211,8 @@
     </figure>
 
   </div>
+
+  <p class="gallery-empty" id="galleryEmpty" hidden>Nothing tagged here yet — check back soon.</p>
 
   <p class="gallery-note reveal">Note: some subjects/elements in select thumbnails were generated with ChatGPT and used as sample content for this portfolio, then manually edited and composed in Canva.</p>
 </section>
