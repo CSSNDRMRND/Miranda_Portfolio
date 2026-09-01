@@ -17,7 +17,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
-// ----- Gallery filtering (Posters / Thumbnails / AI Generated / All) -----
+// ----- Gallery filtering (Posters / Thumbnails / AI Generated / Videos / All) -----
 const filterButtons = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.gallery .card');
 const galleryEmpty = document.getElementById('galleryEmpty');
@@ -133,3 +133,15 @@ if (backToTop) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+// ----- Only one gallery video plays at a time -----
+const galleryVideos = document.querySelectorAll('.gallery video');
+galleryVideos.forEach(video => {
+  video.addEventListener('play', () => {
+    galleryVideos.forEach(other => {
+      if (other !== video && !other.paused) {
+        other.pause();
+      }
+    });
+  });
+});
