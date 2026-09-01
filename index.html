@@ -85,11 +85,12 @@
     <button class="filter-btn is-active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="poster">Posters</button>
     <button class="filter-btn" data-filter="thumbnail">Thumbnails</button>
-    <button class="filter-btn" data-filter="ai">AI Generated</button>
+    <button class="filter-btn" data-filter="ai">AI Generated Images</button>
+    <button class="filter-btn" data-filter="video">AI Generated Videos</button>
   </div>
 
   <div class="gallery" id="gallery">
-    <!-- Replace each .card's inner <img> src with your own file, or keep the placeholder look. -->
+    <!-- Replace each .card's inner <img>/<video> src with your own file, or keep the placeholder look. -->
     <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/c1.png" alt="Solo concert poster" onerror="this.closest('.card').classList.add('is-placeholder')">
@@ -352,6 +353,43 @@
         <div class="card__placeholder">Add ai18.png</div>
       </div>
       <figcaption><span>AI Generated</span> Festive Flat Lay Shot</figcaption>
+    </figure>
+
+    <!-- AI Generated Videos (9:16) -->
+    <figure class="card reveal" data-cat="video">
+      <div class="card__frame">
+        <video src="assets/v1.mp4" muted loop playsinline controls preload="metadata"
+               onerror="this.closest('.card').classList.add('is-placeholder')"></video>
+        <div class="card__placeholder">Add v1.mp4</div>
+      </div>
+      <figcaption><span>AI Generated Video</span> Reel Edit 01</figcaption>
+    </figure>
+
+    <figure class="card reveal" data-cat="video">
+      <div class="card__frame">
+        <video src="assets/v2.mp4" muted loop playsinline controls preload="metadata"
+               onerror="this.closest('.card').classList.add('is-placeholder')"></video>
+        <div class="card__placeholder">Add v2.mp4</div>
+      </div>
+      <figcaption><span>AI Generated Video</span> Reel Edit 02</figcaption>
+    </figure>
+
+    <figure class="card reveal" data-cat="video">
+      <div class="card__frame">
+        <video src="assets/v3.mp4" muted loop playsinline controls preload="metadata"
+               onerror="this.closest('.card').classList.add('is-placeholder')"></video>
+        <div class="card__placeholder">Add v3.mp4</div>
+      </div>
+      <figcaption><span>AI Generated Video</span> Reel Edit 03</figcaption>
+    </figure>
+
+    <figure class="card reveal" data-cat="video">
+      <div class="card__frame">
+        <video src="assets/v4.mp4" muted loop playsinline controls preload="metadata"
+               onerror="this.closest('.card').classList.add('is-placeholder')"></video>
+        <div class="card__placeholder">Add v4.mp4</div>
+      </div>
+      <figcaption><span>AI Generated Video</span> Reel Edit 04</figcaption>
     </figure>
 
   </div>
