@@ -21,6 +21,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 const filterButtons = document.querySelectorAll('.filter-btn');
 const cards = document.querySelectorAll('.gallery .card');
 const galleryEmpty = document.getElementById('galleryEmpty');
+const gallery = document.getElementById('gallery');
 
 filterButtons.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -35,6 +36,10 @@ filterButtons.forEach(btn => {
       card.style.display = match ? '' : 'none';
       if (match) visibleCount++;
     });
+
+    if (gallery) {
+      gallery.classList.toggle('gallery--video-view', filter === 'video');
+    }
 
     if (galleryEmpty) {
       galleryEmpty.hidden = visibleCount > 0;
