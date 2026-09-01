@@ -288,7 +288,11 @@ img{ max-width:100%; display:block; }
 }
 .card[data-cat="thumbnail"] .card__frame{ aspect-ratio: 16/9; }
 .card[data-cat="ai"] .card__frame{ aspect-ratio: 1/1; }
-.card[data-cat="video"] .card__frame{ aspect-ratio: 9/16; }
+.card[data-cat="video"] .card__frame{
+  aspect-ratio: 9/16;
+  max-width: 240px;
+  margin: 0 auto;
+}
 .card__frame img{
   width:100%; height:100%; object-fit:cover;
   transition: transform 0.5s ease;
@@ -302,6 +306,23 @@ img{ max-width:100%; display:block; }
 }
 .card:hover .card__frame video{ transform: scale(1.06); }
 .card.is-placeholder video{ display:none; }
+
+/* When a video goes fullscreen, show the whole 9:16 frame instead of a cropped/zoomed fill */
+.card__frame video:fullscreen{
+  object-fit: contain;
+  background: #000;
+  transform: none;
+}
+.card__frame video:-webkit-full-screen{
+  object-fit: contain;
+  background: #000;
+  transform: none;
+}
+.card__frame video:-moz-full-screen{
+  object-fit: contain;
+  background: #000;
+  transform: none;
+}
 
 .card__placeholder{
   display:none;
