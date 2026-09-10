@@ -153,3 +153,97 @@ galleryVideos.forEach(video => {
     });
   });
 });
+
+// ----- Custom cursor (desktop only) -----
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+if (cursorDot && cursorRing && window.matchMedia('(hover: hover)').matches) {
+  document.body.classList.add('has-custom-cursor');
+  let ringX = 0, ringY = 0, targetX = 0, targetY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+    cursorDot.style.left = targetX + 'px';
+    cursorDot.style.top = targetY + 'px';
+    cursorDot.classList.add('is-active');
+    cursorRing.classList.add('is-active');
+  });
+
+  function animateRing() {
+    ringX += (targetX - ringX) * 0.18;
+    ringY += (targetY - ringY) * 0.18;
+    cursorRing.style.left = ringX + 'px';
+    cursorRing.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('a, button, .card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorRing.classList.add('is-hovering'));
+    el.addEventListener('mouseleave', () => cursorRing.classList.remove('is-hovering'));
+  });
+}
+
+// ----- Hero letter-by-letter reveal -----
+document.querySelectorAll('[data-split]').forEach(el => {
+  const text = el.textContent;
+  el.textContent = '';
+  [...text].forEach((char, i) => {
+    const span = document.createElement('span');
+    span.className = 'letter';
+    span.style.transitionDelay = (i * 0.035) + 's';
+    span.textContent = char === ' ' ? '\u00A0' : char;
+    el.appendChild(span);
+  });
+});
+// trigger letter reveal shortly after load (hero is above the fold)
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.letter').forEach(l => l.classList.add('is-visible'));
+  }, 150);
+});
+
+// ----- Nav scrollspy sliding indicator -----
+const navIndicator = document.getElementById('navIndicator');
+const navLinksEl = document.getElementById('navLinks');
+const spyLinks = document.querySelectorAll('.nav__links a[data-nav]');
+const spySections = ['work', 'services', 'about', 'tools']
+  .map(id => document.getElementById(id))
+  .filter(Boolean);
+
+function moveIndicatorTo(link) {
+  if (!navIndicator || !navLinksEl || !link) return;
+  const linkRect = link.getBoundingClientRect();
+  const navRect = navLinksEl.getBoundingClientRect();
+  navIndicator.style.left = (linkRect.left - navRect.left) + 'px';
+  navIndicator.style.width = linkRect.width + 'px';
+  navIndicator.classList.add('is-active');
+}
+
+if (navIndicator && spySections.length) {
+  const spyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const match = document.querySelector(`.nav__links a[data-nav="${entry.target.id}"]`);
+        if (match) moveIndicatorTo(match);
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-90px 0px -60% 0px' });
+
+  spySections.forEach(section => spyObserver.observe(section));
+}
+
+// ----- Section head underline: reuse reveal observer pattern -----
+const sectionHeadEls = document.querySelectorAll('.section-head');
+if ('IntersectionObserver' in window) {
+  const headObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        headObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  sectionHeadEls.forEach(el => headObserver.observe(el));
+}
