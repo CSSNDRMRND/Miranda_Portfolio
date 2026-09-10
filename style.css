@@ -142,14 +142,11 @@ img{ max-width:100%; display:block; }
 .hero__title{
   font-family: var(--font-display);
   line-height: 0.86;
-  font-size: clamp(2.1rem, 13vw, 9.5rem);
+  font-size: clamp(3.2rem, 12vw, 9.5rem);
   letter-spacing: -0.01em;
   text-transform: uppercase;
 }
-.hero__title span{
-  display:block;
-  white-space: nowrap;
-}
+.hero__title span{ display:block; }
 .hero__title--outline{
   color: transparent;
   -webkit-text-stroke: 1.5px var(--orange);
@@ -591,19 +588,6 @@ body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button{
   background: rgba(245,169,78,0.08);
 }
 
-/* hero letter reveal */
-.letter{
-  display: inline-block;
-  white-space: pre;
-  opacity: 0;
-  transform: translateY(34px) rotate(4deg);
-  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(.2,.8,.2,1);
-}
-.letter.is-visible{
-  opacity: 1;
-  transform: translateY(0) rotate(0deg);
-}
-
 /* REC pulse dot */
 .rec-dot{
   display: inline-block;
@@ -694,7 +678,6 @@ body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button{
 }
 
 @media (prefers-reduced-motion: reduce){
-  .letter{ opacity: 1; transform: none; transition: none; }
   .rec-dot{ animation: none; }
   .card__frame::before{ animation: none; }
 }
