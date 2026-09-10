@@ -185,25 +185,6 @@ if (cursorDot && cursorRing && window.matchMedia('(hover: hover)').matches) {
   });
 }
 
-// ----- Hero letter-by-letter reveal -----
-document.querySelectorAll('[data-split]').forEach(el => {
-  const text = el.textContent;
-  el.textContent = '';
-  [...text].forEach((char, i) => {
-    const span = document.createElement('span');
-    span.className = 'letter';
-    span.style.transitionDelay = (i * 0.035) + 's';
-    span.textContent = char === ' ' ? '\u00A0' : char;
-    el.appendChild(span);
-  });
-});
-// trigger letter reveal shortly after load (hero is above the fold)
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    document.querySelectorAll('.letter').forEach(l => l.classList.add('is-visible'));
-  }, 150);
-});
-
 // ----- Nav scrollspy sliding indicator -----
 const navIndicator = document.getElementById('navIndicator');
 const navLinksEl = document.getElementById('navLinks');
