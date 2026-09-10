@@ -7,72 +7,81 @@
 <meta name="description" content="Portfolio of Cassandra Miranda — graphic designer, AI content creator, and short-form video editor.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Karla:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- scroll progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- grain overlay -->
+<div class="grain" aria-hidden="true"></div>
+
 <!-- NAV -->
 <header class="nav" id="nav">
   <a href="#top" class="nav__mark">
-    <span class="sun sun--tiny" aria-hidden="true"><span class="sun__hole">CM</span></span>
-    Cassandra Miranda
+    <img src="assets/favicon.png" alt="" class="nav__logo" onerror="this.style.display='none'">
+    CM<span>.</span>
   </a>
   <nav class="nav__links">
-    <a href="#wall">The Wall</a>
-    <a href="#work">What I Do</a>
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
     <a href="#about">About</a>
-    <a href="#toolbox">Toolbox</a>
-    <a href="#contact" class="nav__cta">Say hi</a>
+    <a href="#tools">Tools</a>
+    <a href="#contact" class="nav__cta">Contact</a>
   </nav>
   <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </header>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#wall">The Wall</a>
-  <a href="#work">What I Do</a>
+  <a href="#work">Work</a>
+  <a href="#services">Services</a>
   <a href="#about">About</a>
-  <a href="#toolbox">Toolbox</a>
-  <a href="#contact">Say hi</a>
+  <a href="#tools">Tools</a>
+  <a href="#contact">Contact</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO — poster / movie-credits style -->
 <section class="hero" id="top">
-  <div class="sun sun--hero" aria-hidden="true"></div>
+  <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
 
-  <div class="hero__inner">
-    <p class="hero__hello">Hi there, I'm</p>
-    <h1 class="hero__title">Cassandra<br>Miranda</h1>
-    <p class="hero__tagline">
-      Graphic design, AI content, and video edits — made with care,
-      one project at a time.
-    </p>
-    <div class="hero__cta-row">
-      <a href="#wall" class="btn btn--primary">See my work</a>
-      <a href="#contact" class="btn btn--outline">Get in touch</a>
+  <p class="hero__eyebrow reveal">NOW SHOWING <span class="dot">●</span> PORTFOLIO EDITION</p>
+
+  <h1 class="hero__title">
+    <span class="reveal reveal--1">CASSANDRA</span>
+    <span class="hero__title--outline reveal reveal--2">MIRANDA</span>
+  </h1>
+
+  <div class="hero__credits reveal reveal--3">
+    <p><span>GRAPHIC DESIGN</span> · <span>AI CONTENT CREATION</span> · <span>VIDEO EDITING</span></p>
+  </div>
+
+  <div class="hero__bottom reveal reveal--4">
+    <a href="#work" class="btn btn--primary" id="magneticBtn">See the work ↓</a>
+    <p class="hero__stamp">EST. <span>2003</span></p>
+  </div>
+
+  <div class="hero__marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>POSTERS&nbsp;&nbsp;★&nbsp;&nbsp;THUMBNAILS&nbsp;&nbsp;★&nbsp;&nbsp;AI CONTENT&nbsp;&nbsp;★&nbsp;&nbsp;SHORT-FORM EDITS&nbsp;&nbsp;★&nbsp;&nbsp;</span>
+      <span>POSTERS&nbsp;&nbsp;★&nbsp;&nbsp;THUMBNAILS&nbsp;&nbsp;★&nbsp;&nbsp;AI CONTENT&nbsp;&nbsp;★&nbsp;&nbsp;SHORT-FORM EDITS&nbsp;&nbsp;★&nbsp;&nbsp;</span>
     </div>
   </div>
-
-  <div class="hero__frames" aria-hidden="true">
-    <div class="arch arch--1"><img src="assets/posters/c2.png" alt="" onerror="this.parentElement.style.display='none'"></div>
-    <div class="arch arch--2"><img src="assets/posters/c4.png" alt="" onerror="this.parentElement.style.display='none'"></div>
-    <div class="arch arch--3"><img src="assets/ai-generated-images/ai3.png" alt="" onerror="this.parentElement.style.display='none'"></div>
-  </div>
-
-  <div class="scallop-divider scallop-divider--to-cream" aria-hidden="true"></div>
 </section>
 
-<!-- WALL / GALLERY -->
-<section class="wall" id="wall">
-  <div class="section-head">
+<!-- WORK / GALLERY -->
+<section class="work" id="work">
+  <div class="section-head reveal">
+    <p class="section-label">01 — Selected Work</p>
     <h2>The Wall</h2>
-    <p>A little bit of everything I've made lately.</p>
   </div>
 
-  <div class="filters" id="filters">
+  <div class="filters reveal" id="filters">
     <button class="filter-btn is-active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="poster">Posters</button>
     <button class="filter-btn" data-filter="thumbnail">Thumbnails</button>
@@ -81,7 +90,7 @@
   </div>
 
   <div class="gallery" id="gallery">
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/posters/c1.png" alt="Solo concert poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c1.png</div>
@@ -89,7 +98,7 @@
       <figcaption><span>Poster</span> Solo Concert</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/posters/c2.png" alt="Who's That Girl? poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c2.png</div>
@@ -97,7 +106,7 @@
       <figcaption><span>Poster</span> Who's That Girl?</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/posters/c3.png" alt="Karma poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c3.png</div>
@@ -105,7 +114,7 @@
       <figcaption><span>Poster</span> Karma</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/posters/c4.png" alt="Lee Know poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c4.png</div>
@@ -113,7 +122,7 @@
       <figcaption><span>Poster</span> Lee Know</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/posters/c5.png" alt="Taste the Zest poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c5.png</div>
@@ -121,7 +130,7 @@
       <figcaption><span>Poster</span> Taste the Zest</figcaption>
     </figure>
 
-    <figure class="card" data-cat="poster">
+    <figure class="card reveal" data-cat="poster">
       <div class="card__frame">
         <img src="assets/posters/c6.png" alt="Life poster" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add c6.png</div>
@@ -129,7 +138,7 @@
       <figcaption><span>Poster</span> Life</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t10.png" alt="Day in the Life thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t10.png</div>
@@ -137,7 +146,7 @@
       <figcaption><span>Thumbnail</span> Day in the Life</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t11.png" alt="Georgia thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t11.png</div>
@@ -145,7 +154,7 @@
       <figcaption><span>Thumbnail</span> Georgia</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t12.png" alt="Beyond the Mountains thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t12.png</div>
@@ -153,7 +162,7 @@
       <figcaption><span>Thumbnail</span> Beyond the Mountains</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t1.png" alt="Replaced by AI thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t1.png</div>
@@ -161,7 +170,7 @@
       <figcaption><span>Thumbnail</span> Replaced by AI</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t5.png" alt="Youtube thumbnail sample" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t5.png</div>
@@ -169,7 +178,7 @@
       <figcaption><span>Thumbnail</span> AI Youtube Thumbnail</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t8.png" alt="How to earn 1000 dollars per month" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t8.png</div>
@@ -177,7 +186,7 @@
       <figcaption><span>Thumbnail</span> How to Earn $1000/mo</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t2.png" alt="A Day in a Life thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t2.png</div>
@@ -185,7 +194,7 @@
       <figcaption><span>Thumbnail</span> A Day in a Life</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t3.png" alt="A Day in Bali thumbnail" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t3.png</div>
@@ -193,7 +202,7 @@
       <figcaption><span>Thumbnail</span> A Day in Bali</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t4.png" alt="The Voice" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t4.png</div>
@@ -201,7 +210,7 @@
       <figcaption><span>Thumbnail</span> The Voice Journey</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t7.png" alt="Japan Vlog" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t7.png</div>
@@ -209,7 +218,7 @@
       <figcaption><span>Thumbnail</span> Japan Vlog</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t6.png" alt="Tokyo Travel" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t6.png</div>
@@ -217,7 +226,7 @@
       <figcaption><span>Thumbnail</span> Tokyo Travel</figcaption>
     </figure>
 
-    <figure class="card" data-cat="thumbnail">
+    <figure class="card reveal" data-cat="thumbnail">
       <div class="card__frame">
         <img src="assets/thumbnails/t9.png" alt="Podcast" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add t9.png</div>
@@ -225,7 +234,7 @@
       <figcaption><span>Thumbnail</span> Podcast-style</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai1.png" alt="Golden Hour Hero Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai1.png</div>
@@ -233,7 +242,7 @@
       <figcaption><span>AI Generated</span> Golden Hour Hero Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai2.png" alt="Clean E-Commerce Studio Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai2.png</div>
@@ -241,7 +250,7 @@
       <figcaption><span>AI Generated</span> Clean E-Commerce Studio Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai3.png" alt="Bold Gen-Z Social Ad" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai3.png</div>
@@ -249,7 +258,7 @@
       <figcaption><span>AI Generated</span> Bold Gen-Z Social Ad</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai4.png" alt="Cozy UGC-Style Lifestyle Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai4.png</div>
@@ -257,7 +266,7 @@
       <figcaption><span>AI Generated</span> Cozy UGC-Style Lifestyle Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai5.png" alt="Premium Nighttime Brand Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai5.png</div>
@@ -265,7 +274,7 @@
       <figcaption><span>AI Generated</span> Premium Nighttime Brand Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai6.png" alt="AI generated piece 6" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai6.png</div>
@@ -273,7 +282,7 @@
       <figcaption><span>AI Generated</span> AI Piece 06</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai7.png" alt="App Hero/Launch Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai7.png</div>
@@ -281,7 +290,7 @@
       <figcaption><span>AI Generated</span> App Hero/Launch Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai8.png" alt="Clean Minimalist App Icon Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai8.png</div>
@@ -289,7 +298,7 @@
       <figcaption><span>AI Generated</span> Clean Minimalist App Icon Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai9.png" alt="Bold Promo/Cashback Ad" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai9.png</div>
@@ -297,7 +306,7 @@
       <figcaption><span>AI Generated</span> Bold Promo/Cashback Ad</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai10.png" alt="Everyday Lifestyle Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai10.png</div>
@@ -305,7 +314,7 @@
       <figcaption><span>AI Generated</span> Everyday Lifestyle Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai11.png" alt="Premium Trust/Security Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai11.png</div>
@@ -313,7 +322,7 @@
       <figcaption><span>AI Generated</span> Premium Trust/Security Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai12.png" alt="Family/Community Flat Lay Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai12.png</div>
@@ -321,7 +330,7 @@
       <figcaption><span>AI Generated</span> Family/Community Flat Lay Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai13.png" alt="Hero Product Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai13.png</div>
@@ -329,7 +338,7 @@
       <figcaption><span>AI Generated</span> Hero Product Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai14.png" alt="Clean Studio Product Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai14.png</div>
@@ -337,7 +346,7 @@
       <figcaption><span>AI Generated</span> Clean Studio Product Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai15.png" alt="Bold Flavor Splash Ad" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai15.png</div>
@@ -345,7 +354,7 @@
       <figcaption><span>AI Generated</span> Bold Flavor Splash Ad</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai16.png" alt="Friends Hangout Lifestyle Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai16.png</div>
@@ -353,7 +362,7 @@
       <figcaption><span>AI Generated</span> Friends Hangout Lifestyle Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai17.png" alt="Cold Beverage Pairing Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai17.png</div>
@@ -361,7 +370,7 @@
       <figcaption><span>AI Generated</span> Cold Beverage Pairing Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="ai">
+    <figure class="card reveal" data-cat="ai">
       <div class="card__frame">
         <img src="assets/ai-generated-images/ai18.png" alt="Festive Flat Lay Shot" onerror="this.closest('.card').classList.add('is-placeholder')">
         <div class="card__placeholder">Add ai18.png</div>
@@ -369,7 +378,7 @@
       <figcaption><span>AI Generated</span> Festive Flat Lay Shot</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/v1.mp4" muted loop playsinline controls preload="metadata"
                onerror="this.closest('.card').classList.add('is-placeholder')"></video>
@@ -378,7 +387,7 @@
       <figcaption><span>AI Generated Video</span> Reel Edit 01</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/v2.mp4" muted loop playsinline controls preload="metadata"
                onerror="this.closest('.card').classList.add('is-placeholder')"></video>
@@ -387,7 +396,7 @@
       <figcaption><span>AI Generated Video</span> Reel Edit 02</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/v3.mp4" muted loop playsinline controls preload="metadata"
                onerror="this.closest('.card').classList.add('is-placeholder')"></video>
@@ -396,7 +405,7 @@
       <figcaption><span>AI Generated Video</span> Reel Edit 03</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/v4.mp4" muted loop playsinline controls preload="metadata"
                onerror="this.closest('.card').classList.add('is-placeholder')"></video>
@@ -405,7 +414,7 @@
       <figcaption><span>AI Generated Video</span> Reel Edit 04</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/ONYX_trailer_final_v2.mp4"
                muted loop playsinline controls preload="metadata"
@@ -415,7 +424,7 @@
       <figcaption><span>AI Generated Video</span> ONYX Trailer</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/Haru_onyx.mp4"
                muted loop playsinline controls preload="metadata"
@@ -425,7 +434,7 @@
       <figcaption><span>AI Generated Video</span> Haru — ONYX</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/jun_onyx.mp4"
                muted loop playsinline controls preload="metadata"
@@ -435,7 +444,7 @@
       <figcaption><span>AI Generated Video</span> Jun — ONYX</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/Ryo_onyx.mp4"
                muted loop playsinline controls preload="metadata"
@@ -445,7 +454,7 @@
       <figcaption><span>AI Generated Video</span> Ryo — ONYX</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/Taeyoung_onyx.mp4"
                muted loop playsinline controls preload="metadata"
@@ -455,7 +464,7 @@
       <figcaption><span>AI Generated Video</span> Taeyoung — ONYX</figcaption>
     </figure>
 
-    <figure class="card" data-cat="video">
+    <figure class="card reveal" data-cat="video">
       <div class="card__frame">
         <video src="assets/ai-generated-videos/Woobin_onyx.mp4"
                muted loop playsinline controls preload="metadata"
@@ -464,90 +473,101 @@
       </div>
       <figcaption><span>AI Generated Video</span> Woobin — ONYX</figcaption>
     </figure>
+
   </div>
 
   <p class="gallery-empty" id="galleryEmpty" hidden>Nothing tagged here yet — check back soon.</p>
 
-  <p class="gallery-note">Note: some elements in select thumbnails were generated with AI, then edited and composed by hand in Canva.</p>
+  <p class="gallery-note reveal">Note: some elements in select thumbnails were generated with AI, then edited and composed by hand in Canva.</p>
 </section>
 
-<!-- WHAT I DO -->
-<section class="work" id="work">
-  <div class="section-head">
-    <h2>What I Do</h2>
-    <p>Three things I'm good at. Pick one, or all three.</p>
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-head section-head--light reveal">
+    <p class="section-label">02 — What I Do</p>
+    <h2>Services</h2>
   </div>
 
-  <div class="arch-row">
-    <article class="arch-card" style="--tint: var(--peach)">
-      <div class="arch-card__top" aria-hidden="true"></div>
-      <h3>Poster + Graphic Design</h3>
-      <p>Concert flyers, brand posters, and social templates — built to get looked at twice.</p>
-    </article>
-    <article class="arch-card" style="--tint: var(--coral)">
-      <div class="arch-card__top" aria-hidden="true"></div>
+  <div class="service-list">
+    <div class="service-row reveal">
+      <span class="service-num">01</span>
+      <h3>Graphic Design</h3>
+      <p>Posters, social templates, and brand visuals built to actually get looked at.</p>
+    </div>
+    <div class="service-row reveal">
+      <span class="service-num">02</span>
       <h3>AI Content Creation</h3>
-      <p>Concept to finished asset — product shots, campaign visuals, and AI-generated characters with real art direction behind them.</p>
-    </article>
-    <article class="arch-card" style="--tint: var(--yellow)">
-      <div class="arch-card__top" aria-hidden="true"></div>
-      <h3>Short-Form Video Edits</h3>
-      <p>Reels, TikToks, and quick-turnaround cuts. Basic edits, fast delivery, right now.</p>
-    </article>
+      <p>Concepting and producing content with AI tools — from idea to finished asset.</p>
+    </div>
+    <div class="service-row reveal">
+      <span class="service-num">03</span>
+      <h3>Basic Video Editing</h3>
+      <p>Short-form edits — reels, TikToks, and quick-turnaround clips (as of now).</p>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-  <div class="about__card">
-    <div class="sun sun--about" aria-hidden="true"></div>
+  <div class="section-head reveal">
+    <p class="section-label">03 — About</p>
     <h2>Hi, I'm Cassandra.</h2>
-    <p>
-      I make things people stop scrolling for — posters, thumbnails, and AI-assisted
-      content built with one foot in hands-on design and the other in whatever tool
-      gets the piece finished right. Most days that's Canva, an AI model for ideation,
-      and a lot of trial and error until it looks like it didn't take any effort at all.
-    </p>
-    <p class="about__sign">xx, Cassandra</p>
   </div>
+  <p class="about__body reveal">
+    I design things that catch the eye first and hold it after — posters, thumbnails,
+    and content that mixes hands-on design with AI-assisted workflows. Based on what
+    the project needs, I move between Canva, AI tools for ideation, and whatever gets
+    the piece finished right.
+  </p>
 </section>
 
-<!-- TOOLBOX -->
-<section class="toolbox" id="toolbox">
-  <div class="section-head">
-    <h2>The Toolbox</h2>
-    <p>What's actually open on my laptop while I work.</p>
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="section-head section-head--light reveal">
+    <p class="section-label">04 — Toolkit</p>
+    <h2>Made With</h2>
   </div>
-  <div class="petals">
-    <span class="petal" style="--tint: var(--peach)">Canva</span>
-    <span class="petal" style="--tint: var(--coral)">CapCut</span>
-    <span class="petal" style="--tint: var(--yellow)">ChatGPT</span>
-    <span class="petal" style="--tint: var(--teal); color: var(--cream);">Claude</span>
-    <span class="petal" style="--tint: var(--peach)">Pexels</span>
-    <span class="petal" style="--tint: var(--coral)">Unsplash</span>
-    <span class="petal" style="--tint: var(--yellow)">Pixabay</span>
+
+  <div class="tool-grid">
+    <div class="tool-card reveal">
+      <p class="tool-card__role">Design & Editing</p>
+      <p class="tool-card__name">Canva</p>
+      <p class="tool-card__name">CapCut</p>
+    </div>
+    <div class="tool-card reveal">
+      <p class="tool-card__role">Ideas & Prompts</p>
+      <p class="tool-card__name">ChatGPT</p>
+      <p class="tool-card__name">Claude</p>
+    </div>
+    <div class="tool-card reveal">
+      <p class="tool-card__role">Assets & References</p>
+      <p class="tool-card__name">Pexels</p>
+      <p class="tool-card__name">Unsplash</p>
+      <p class="tool-card__name">Pixabay</p>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="sun sun--contact" aria-hidden="true"></div>
-  <div class="contact__inner">
-    <h2>Let's create<br>something together.</h2>
-    <div class="chips">
-      <a class="chip" href="mailto:miranda.cassandra.m@gmail.com">
-        <span class="chip__label">Email</span>
-        <span class="chip__value">miranda.cassandra.m@gmail.com</span>
-      </a>
-      <a class="chip" href="https://www.instagram.com/mcssndr_/?hl=en" target="_blank" rel="noopener noreferrer">
-        <span class="chip__label">Instagram</span>
-        <span class="chip__value">@mcssndr_</span>
-      </a>
-      <a class="chip" href="https://www.linkedin.com/in/cassandra-miranda-61a6693a5" target="_blank" rel="noopener noreferrer">
-        <span class="chip__label">LinkedIn</span>
-        <span class="chip__value">Cassandra Miranda</span>
-      </a>
-    </div>
+  <div class="section-head reveal">
+    <p class="section-label">05 — Get In Touch</p>
+    <h2>Let's make<br>something.</h2>
+  </div>
+
+  <div class="contact__grid">
+    <a class="contact__link reveal" href="mailto:miranda.cassandra.m@gmail.com">
+      <span class="contact__label">Email</span>
+      <span class="contact__value">miranda.cassandra.m@gmail.com</span>
+    </a>
+    <a class="contact__link reveal" href="https://www.instagram.com/mcssndr_/?hl=en" target="_blank" rel="noopener noreferrer">
+      <span class="contact__label">Instagram</span>
+      <span class="contact__value">@mcssndr_</span>
+    </a>
+    <a class="contact__link reveal" href="https://www.linkedin.com/in/cassandra-miranda-61a6693a5" target="_blank" rel="noopener noreferrer">
+      <span class="contact__label">LinkedIn</span>
+      <span class="contact__value">Cassandra Miranda</span>
+    </a>
   </div>
 </section>
 
