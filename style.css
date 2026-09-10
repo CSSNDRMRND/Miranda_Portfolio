@@ -618,27 +618,6 @@ body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button{
 }
 .nav__indicator.is-active{ opacity: 1; }
 
-/* card conic-gradient glow ring on hover */
-.card__frame{ position: relative; }
-.card__frame::before{
-  content: "";
-  position: absolute;
-  inset: -3px;
-  border-radius: calc(var(--radius) + 3px);
-  padding: 2px;
-  background: conic-gradient(var(--rust), var(--orange), var(--gold), var(--rust));
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  animation: spin-border 3.5s linear infinite;
-  pointer-events: none;
-  z-index: 2;
-}
-.card:hover .card__frame::before{ opacity: 1; }
-@keyframes spin-border{ to{ transform: rotate(360deg); } }
-
 /* button shine sweep */
 .btn--primary{ position: relative; overflow: hidden; }
 .btn--primary::after{
@@ -679,5 +658,4 @@ body.has-custom-cursor, body.has-custom-cursor a, body.has-custom-cursor button{
 
 @media (prefers-reduced-motion: reduce){
   .rec-dot{ animation: none; }
-  .card__frame::before{ animation: none; }
 }
