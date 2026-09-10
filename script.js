@@ -50,44 +50,23 @@ filterButtons.forEach(btn => {
   });
 });
 
-// ----- Scroll progress "tape" bar -----
-const tapeline = document.getElementById('tapeline');
-
-function updateTapeline() {
-  if (!tapeline) return;
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  tapeline.style.width = pct + '%';
-}
-
-window.addEventListener('scroll', updateTapeline);
-updateTapeline();
-
-// ----- Hero load sequence (single orchestrated moment) -----
-window.addEventListener('load', () => {
-  requestAnimationFrame(() => {
-    setTimeout(() => document.body.classList.add('is-loaded'), 80);
-  });
-});
-
-// ----- Wall cards "pin in" on scroll -----
+// ----- Wall cards "bloom" in on scroll -----
 if ('IntersectionObserver' in window) {
-  const pinObserver = new IntersectionObserver(
+  const bloomObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('is-pinned');
-          pinObserver.unobserve(entry.target);
+          entry.target.classList.add('is-bloomed');
+          bloomObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
   );
 
-  cards.forEach(card => pinObserver.observe(card));
+  cards.forEach(card => bloomObserver.observe(card));
 } else {
-  cards.forEach(card => card.classList.add('is-pinned'));
+  cards.forEach(card => card.classList.add('is-bloomed'));
 }
 
 // ----- Back to top -----
