@@ -269,6 +269,11 @@ img{ max-width:100%; display:block; }
 @media (max-width: 900px){ .gallery{ grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 560px){ .gallery{ grid-template-columns: 1fr; } }
 
+.gallery.gallery--video-view{ grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px){ .gallery.gallery--video-view{ grid-template-columns: repeat(3,1fr); } }
+@media (max-width: 700px){ .gallery.gallery--video-view{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 440px){ .gallery.gallery--video-view{ grid-template-columns: 1fr; } }
+
 .card{ cursor: default; }
 .card__frame{
   position:relative;
